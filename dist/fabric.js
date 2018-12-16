@@ -11181,6 +11181,9 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
      * @param {Event} e Event object fired on mouseup
      */
     _onMouseUp: function (e) {
+      if (checkClick(e, RIGHT_CLICK)) {
+        return;
+      }
       this.__onMouseUp(e);
       this._resetTransformEventData();
       removeListener(fabric.document, 'mouseup', this._onMouseUp);
