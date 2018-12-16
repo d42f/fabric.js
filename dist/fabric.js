@@ -11155,6 +11155,9 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
      * @param {Event} e Event object fired on mousedown
      */
     _onMouseDown: function (e) {
+      if (checkClick(e, RIGHT_CLICK)) {
+        return;
+      }
       this.__onMouseDown(e);
       this._resetTransformEventData();
       addListener(fabric.document, 'touchend', this._onMouseUp, addEventOptions);
